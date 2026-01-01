@@ -17,15 +17,15 @@ body {
   font-family: 'Press Start 2P', cursive;
   color: #f9fafb;
   background:
-    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
-    url("https://images.unsplash.com/photo-1535223289827-42f1e9919769");
+    linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.88)),
+    url("https://images.unsplash.com/photo-1511512578047-dfb367046420");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   overflow-x: hidden;
 }
 
-/* glitch scanlines */
+/* Scanline glitch */
 body::before {
   content: "";
   position: fixed;
@@ -60,7 +60,7 @@ header {
 }
 
 header h1 {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   color: cyan;
   text-shadow: 0 0 25px cyan;
 }
@@ -91,19 +91,18 @@ h2 {
   margin-bottom: 40px;
 }
 
-/* About text bigger */
 .about-text {
-  max-width: 900px;
+  max-width: 950px;
   margin: auto;
-  font-size: 1rem;
-  line-height: 2.2;
+  font-size: 1.05rem;
+  line-height: 2.3;
   color: #e5e7eb;
 }
 
-/* Scroll reveal */
+/* Scroll animation */
 .reveal {
   opacity: 0;
-  transform: translateY(80px);
+  transform: translateY(90px);
   transition: all 1.2s ease;
 }
 .reveal.active {
@@ -111,33 +110,44 @@ h2 {
   transform: translateY(0);
 }
 
-/* Games */
+/* Games layout */
 .games {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 50px;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: auto;
 }
 
+.game-center {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Cards */
 .card {
-  background: rgba(0,0,0,0.75);
+  width: 100%;
+  max-width: 420px;
+  background: rgba(0,0,0,0.78);
   border: 2px solid cyan;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 0 30px rgba(0,255,255,0.35);
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 0 35px rgba(0,255,255,0.35);
   transition: transform 0.4s, box-shadow 0.4s;
 }
 
 .card:hover {
-  transform: translateY(-15px) scale(1.05);
-  box-shadow: 0 0 50px rgba(255,0,255,0.6);
+  transform: translateY(-18px) scale(1.06);
+  box-shadow: 0 0 55px rgba(255,0,255,0.65);
 }
 
 .card img {
   width: 100%;
+  height: 220px;
+  object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   border: 2px solid magenta;
 }
 
@@ -149,16 +159,15 @@ h2 {
 /* Team */
 .team span {
   display: block;
-  margin: 15px 0;
+  margin: 16px 0;
   color: cyan;
 }
 
-/* Footer */
 footer {
-  padding: 50px 20px;
+  padding: 55px 20px;
   border-top: 2px solid cyan;
   text-align: center;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.88);
 }
 </style>
 </head>
@@ -180,8 +189,9 @@ footer {
   <h2>ABOUT US</h2>
   <p class="about-text">
     GameForge Studios is a cyberpunk-inspired indie game collective driven by
-    a passion for pixel art, retro-futuristic worlds, and intense gameplay.
-    We design experiences that feel alive — fast, glitchy, and unforgettable.
+    a passion for pixel art, retro-futuristic worlds, and adrenaline-fueled
+    gameplay. We blend creativity with technology to craft experiences that
+    feel alive — fast, glitchy, challenging, and unforgettable for players.
   </p>
 </section>
 
@@ -190,21 +200,23 @@ footer {
 
   <div class="games">
     <div class="card">
-      <img src="https://i.imgur.com/3XjK5Zp.png">
+      <img src="https://picsum.photos/seed/neonrift/600/400">
       <h3>Neon Rift</h3>
-      <p>Pixel RPG inside a fractured neon megacity.</p>
+      <p>Action-packed pixel RPG set in a fractured neon megacity.</p>
     </div>
 
     <div class="card">
-      <img src="https://i.imgur.com/0Xy4ZQk.png">
+      <img src="https://picsum.photos/seed/bytebrawl/600/400">
       <h3>Byte Brawl</h3>
-      <p>Retro cyber combat with fast-paced multiplayer action.</p>
+      <p>Retro cyber combat with intense multiplayer battles.</p>
     </div>
 
-    <div class="card">
-      <img src="https://i.imgur.com/Sc9J7wG.png">
-      <h3>Synth Runner</h3>
-      <p>High-speed endless runner through glitching neon streets.</p>
+    <div class="game-center">
+      <div class="card">
+        <img src="https://picsum.photos/seed/synthrunner/600/400">
+        <h3>Synth Runner</h3>
+        <p>High-speed endless runner through glitching digital streets.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -213,13 +225,16 @@ footer {
   <h2>CREATORS</h2>
   <div class="team">
     <span>Sai Santhosh C</span>
-    <span>Rohesh</span>
+    <span>Rhohesh A</span>
+    <span>Balamanikandan SS</span>
     <span>Sanjit V</span>
     <span>Santhosh V</span>
-    <span>Bala</span>
-    <p style="margin-top:35px;color:#d1d5db;">
-      Five players. One controller.  
-      We don’t just play games — we build them.
+
+    <p style="margin-top:40px;color:#d1d5db;line-height:2;">
+      Five creators. One shared vision.  
+      We are a team fueled by creativity, late-night debugging,
+      pixel-perfect details, and the drive to build games that
+      challenge players and push boundaries beyond the screen.
     </p>
   </div>
 </section>
@@ -230,7 +245,7 @@ footer {
 </section>
 
 <footer>
-  <p>© 2026 GameForge Studios — Powered by Pixels & Neon</p>
+  <p>© 2026 GameForge Studios — Powered by Pixels, Passion & Persistence</p>
 </footer>
 
 <script>
