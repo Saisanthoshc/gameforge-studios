@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>GameForge Studios</title>
 
-<!-- Gamey Font -->
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
@@ -16,42 +15,44 @@
 body {
   margin: 0;
   font-family: 'Press Start 2P', cursive;
-  background: #000;
-  color: #e5e7eb;
+  color: #f9fafb;
+  background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+    url("https://images.unsplash.com/photo-1535223289827-42f1e9919769");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   overflow-x: hidden;
 }
 
-/* 🔮 Glitch Background */
+/* glitch scanlines */
 body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background:
     repeating-linear-gradient(
       0deg,
-      rgba(0,255,255,0.03),
-      rgba(0,255,255,0.03) 1px,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.04) 1px,
       transparent 1px,
       transparent 2px
     );
-  animation: glitch 0.2s infinite;
+  animation: glitch 0.25s infinite;
   pointer-events: none;
   z-index: 1;
 }
 
 @keyframes glitch {
   0% { transform: translate(0); }
-  20% { transform: translate(-1px, 1px); }
-  40% { transform: translate(1px, -1px); }
-  60% { transform: translate(-1px, 0); }
-  80% { transform: translate(1px, 1px); }
+  25% { transform: translate(-1px, 1px); }
+  50% { transform: translate(1px, -1px); }
+  75% { transform: translate(-1px, 0); }
   100% { transform: translate(0); }
 }
 
 header {
-  padding: 80px 20px;
+  padding: 90px 20px;
   text-align: center;
   border-bottom: 2px solid cyan;
   position: relative;
@@ -59,24 +60,26 @@ header {
 }
 
 header h1 {
+  font-size: 2.8rem;
   color: cyan;
-  text-shadow: 0 0 20px cyan;
+  text-shadow: 0 0 25px cyan;
 }
 
 header p {
-  color: #9ca3af;
   margin-top: 20px;
+  font-size: 0.9rem;
+  color: #d1d5db;
 }
 
 nav a {
   color: magenta;
   margin: 0 15px;
   text-decoration: none;
-  text-shadow: 0 0 10px magenta;
+  text-shadow: 0 0 12px magenta;
 }
 
 section {
-  padding: 80px 20px;
+  padding: 100px 20px;
   text-align: center;
   position: relative;
   z-index: 2;
@@ -84,69 +87,78 @@ section {
 
 h2 {
   color: magenta;
-  text-shadow: 0 0 12px magenta;
+  text-shadow: 0 0 15px magenta;
   margin-bottom: 40px;
 }
 
-/* 🎥 Scroll animation */
-.reveal {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 1s ease;
+/* About text bigger */
+.about-text {
+  max-width: 900px;
+  margin: auto;
+  font-size: 1rem;
+  line-height: 2.2;
+  color: #e5e7eb;
 }
 
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1.2s ease;
+}
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Games */
 .games {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 40px;
-  max-width: 1000px;
+  gap: 50px;
+  max-width: 1100px;
   margin: auto;
 }
 
 .card {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.75);
   border: 2px solid cyan;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 25px rgba(0,255,255,0.3);
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(0,255,255,0.35);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 0 50px rgba(255,0,255,0.6);
 }
 
 .card img {
   width: 100%;
-  border-radius: 6px;
-  margin-bottom: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 2px solid magenta;
 }
 
 .card h3 {
   color: cyan;
+  margin-bottom: 10px;
 }
 
-/* 👥 Team section */
-.team {
-  max-width: 900px;
-  margin: auto;
-  color: #9ca3af;
-}
-
+/* Team */
 .team span {
   display: block;
-  margin: 12px 0;
+  margin: 15px 0;
   color: cyan;
 }
 
 /* Footer */
 footer {
-  padding: 40px 20px;
-  text-align: center;
+  padding: 50px 20px;
   border-top: 2px solid cyan;
-  color: #9ca3af;
-  position: relative;
-  z-index: 2;
+  text-align: center;
+  background: rgba(0,0,0,0.85);
 }
 </style>
 </head>
@@ -155,7 +167,7 @@ footer {
 
 <header>
   <h1>GAMEFORGE STUDIOS</h1>
-  <p>Neon pixels. Digital chaos. Pure gameplay.</p>
+  <p>Neon pixels. Glitched realities. Hardcore gameplay.</p>
   <nav>
     <a href="#about">ABOUT</a>
     <a href="#games">GAMES</a>
@@ -166,9 +178,10 @@ footer {
 
 <section id="about" class="reveal">
   <h2>ABOUT US</h2>
-  <p>
-    GameForge Studios is a cyberpunk indie game studio crafting
-    pixel-powered worlds, glitchy realities, and high-adrenaline gameplay.
+  <p class="about-text">
+    GameForge Studios is a cyberpunk-inspired indie game collective driven by
+    a passion for pixel art, retro-futuristic worlds, and intense gameplay.
+    We design experiences that feel alive — fast, glitchy, and unforgettable.
   </p>
 </section>
 
@@ -177,21 +190,21 @@ footer {
 
   <div class="games">
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051">
+      <img src="https://i.imgur.com/3XjK5Zp.png">
       <h3>Neon Rift</h3>
-      <p>Action RPG inside a shattered neon metropolis.</p>
+      <p>Pixel RPG inside a fractured neon megacity.</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420">
+      <img src="https://i.imgur.com/0Xy4ZQk.png">
       <h3>Byte Brawl</h3>
-      <p>Retro cyber-fighters in pixel-perfect combat.</p>
+      <p>Retro cyber combat with fast-paced multiplayer action.</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f">
+      <img src="https://i.imgur.com/Sc9J7wG.png">
       <h3>Synth Runner</h3>
-      <p>High-speed glitch runner through digital streets.</p>
+      <p>High-speed endless runner through glitching neon streets.</p>
     </div>
   </div>
 </section>
@@ -204,9 +217,9 @@ footer {
     <span>Sanjit V</span>
     <span>Santhosh V</span>
     <span>Bala</span>
-    <p style="margin-top:30px;">
-      Five minds. One vision. We build worlds, break rules,
-      and forge games that live beyond the screen.
+    <p style="margin-top:35px;color:#d1d5db;">
+      Five players. One controller.  
+      We don’t just play games — we build them.
     </p>
   </div>
 </section>
@@ -217,19 +230,17 @@ footer {
 </section>
 
 <footer>
-  <p>© 2026 GameForge Studios — Powered by Pixels & Passion</p>
+  <p>© 2026 GameForge Studios — Powered by Pixels & Neon</p>
 </footer>
 
 <script>
-const reveals = document.querySelectorAll('.reveal');
-
-window.addEventListener('scroll', () => {
-  for (let r of reveals) {
-    const top = r.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      r.classList.add('active');
+const reveals = document.querySelectorAll(".reveal");
+window.addEventListener("scroll", () => {
+  reveals.forEach(r => {
+    if (r.getBoundingClientRect().top < window.innerHeight - 120) {
+      r.classList.add("active");
     }
-  }
+  });
 });
 </script>
 
