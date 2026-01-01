@@ -1,85 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>GameForge Studios</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
-      text-align: center;
-    }
-    header {
-      padding: 40px;
-      background: #020617;
-    }
-    nav a {
-      margin: 0 15px;
-      color: cyan;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 40px;
-    }
-    .games {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .card {
-      background: #020617;
-      padding: 20px;
-      width: 200px;
-      border-radius: 10px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>GameForge Studios</title>
+
+<!-- Gamey Font -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: #000;
+  color: #e5e7eb;
+  overflow-x: hidden;
+}
+
+/* 🔮 Glitch Background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,255,255,0.03),
+      rgba(0,255,255,0.03) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  animation: glitch 0.2s infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-1px, 0); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+header {
+  padding: 80px 20px;
+  text-align: center;
+  border-bottom: 2px solid cyan;
+  position: relative;
+  z-index: 2;
+}
+
+header h1 {
+  color: cyan;
+  text-shadow: 0 0 20px cyan;
+}
+
+header p {
+  color: #9ca3af;
+  margin-top: 20px;
+}
+
+nav a {
+  color: magenta;
+  margin: 0 15px;
+  text-decoration: none;
+  text-shadow: 0 0 10px magenta;
+}
+
+section {
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+h2 {
+  color: magenta;
+  text-shadow: 0 0 12px magenta;
+  margin-bottom: 40px;
+}
+
+/* 🎥 Scroll animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  background: rgba(0,0,0,0.8);
+  border: 2px solid cyan;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0,255,255,0.3);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  color: cyan;
+}
+
+/* 👥 Team section */
+.team {
+  max-width: 900px;
+  margin: auto;
+  color: #9ca3af;
+}
+
+.team span {
+  display: block;
+  margin: 12px 0;
+  color: cyan;
+}
+
+/* Footer */
+footer {
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 2px solid cyan;
+  color: #9ca3af;
+  position: relative;
+  z-index: 2;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <h1>🎮 GameForge Studios</h1>
-  <p>Forging immersive gaming experiences</p>
+  <h1>GAMEFORGE STUDIOS</h1>
+  <p>Neon pixels. Digital chaos. Pure gameplay.</p>
   <nav>
-    <a href="#about">About</a>
-    <a href="#games">Games</a>
-    <a href="#contact">Contact</a>
+    <a href="#about">ABOUT</a>
+    <a href="#games">GAMES</a>
+    <a href="#team">CREATORS</a>
+    <a href="#contact">CONTACT</a>
   </nav>
 </header>
 
-<section id="about">
-  <h2>About Us</h2>
+<section id="about" class="reveal">
+  <h2>ABOUT US</h2>
   <p>
-    GameForge Studios is an indie game development studio focused on creative
-    storytelling and immersive gameplay.
+    GameForge Studios is a cyberpunk indie game studio crafting
+    pixel-powered worlds, glitchy realities, and high-adrenaline gameplay.
   </p>
 </section>
 
-<section id="games">
-  <h2>Our Games</h2>
+<section id="games" class="reveal">
+  <h2>OUR GAMES</h2>
+
   <div class="games">
     <div class="card">
-      <h3>Shadow Quest</h3>
-      <p>Action RPG</p>
+      <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051">
+      <h3>Neon Rift</h3>
+      <p>Action RPG inside a shattered neon metropolis.</p>
     </div>
+
     <div class="card">
-      <h3>Cyber Drift</h3>
-      <p>Futuristic Racing</p>
+      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420">
+      <h3>Byte Brawl</h3>
+      <p>Retro cyber-fighters in pixel-perfect combat.</p>
     </div>
+
     <div class="card">
-      <h3>Pixel Arena</h3>
-      <p>Multiplayer Combat</p>
+      <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f">
+      <h3>Synth Runner</h3>
+      <p>High-speed glitch runner through digital streets.</p>
     </div>
   </div>
 </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: contact@gameforgestudios.com</p>
+<section id="team" class="reveal">
+  <h2>CREATORS</h2>
+  <div class="team">
+    <span>Sai Santhosh C</span>
+    <span>Rohesh</span>
+    <span>Sanjit V</span>
+    <span>Santhosh V</span>
+    <span>Bala</span>
+    <p style="margin-top:30px;">
+      Five minds. One vision. We build worlds, break rules,
+      and forge games that live beyond the screen.
+    </p>
+  </div>
 </section>
+
+<section id="contact" class="reveal">
+  <h2>CONTACT</h2>
+  <p>contact@gameforgestudios.com</p>
+</section>
+
+<footer>
+  <p>© 2026 GameForge Studios — Powered by Pixels & Passion</p>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+  for (let r of reveals) {
+    const top = r.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      r.classList.add('active');
+    }
+  }
+});
+</script>
 
 </body>
 </html>
+
